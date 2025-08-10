@@ -1,0 +1,7 @@
+login:
+  method: "POST"
+  url: "${BACKEND_BASE_URL}/api/v1/auth/login"
+
+getStudent:
+  method: "GET"
+  url: "${BACKEND_BASE_URL}/api/v1/students/${STUDENT_ID}"
