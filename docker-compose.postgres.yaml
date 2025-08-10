@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    container_name: pg-school
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: school_mgmt
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./seed_db:/seed_db:ro
+    command: >
+      bash -c "
+      docker-entrypoint.sh postgres &  
+      until pg_isready -U $$POSTGRES_USER; do sleep 1; done &&
+      echo 'Running tables.sql...' &&
+      psql -U $$POSTGRES_USER -d $$POSTGRES_DB -f /seed_db/tables.sql &&
+      echo 'Running seed-db.sql...' &&
+      psql -U $$POSTGRES_USER -d $$POSTGRES_DB -f /seed_db/seed-db.sql &&
+      wait
+      "
+
+volumes:
+  pgdata:
