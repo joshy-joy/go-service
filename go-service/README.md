@@ -36,6 +36,7 @@ Make sure you have the following installed before starting:
 - **Node.js** (v16 or higher)
 - **PostgreSQL** (v12 or higher)
 - **npm** or **yarn**
+- ***brew install --cask google-chrome*** - for rendending pdf
 
 ---
 
