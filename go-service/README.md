@@ -36,7 +36,7 @@ Make sure you have the following installed before starting:
 - **Node.js** (v16 or higher)
 - **PostgreSQL** (v12 or higher)
 - **npm** or **yarn**
-- ***brew install --cask google-chrome*** - for rendending pdf
+- ***google-chrome*** package for html render
 
 ---
 
@@ -121,6 +121,24 @@ SELECT * FROM student_add_update('{
 ---
 
 ## 5. Go Service Setup
+
+### Install Google Chrome package
+
+```bash
+# For macOS
+brew install --cask google-chrome
+
+# For Windows
+winget install --id Google.Chrome
+
+# For Debian/Ubuntu
+sudo apt update
+sudo apt install wget -y
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+### Start Go service
 
 ```bash
 cd go-service
